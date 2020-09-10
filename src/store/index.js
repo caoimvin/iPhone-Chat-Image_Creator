@@ -14,8 +14,10 @@ export default new Vuex.Store({
   state: {
     name: "Kevin",
     fieldB: "",
+    time: "6:17 AM",
     percent: "25",
-    showPercent: "true",
+    showPercent: true,
+    showBattery: true,
     connectionName: "Sprint",
     connectionType: "LTE",
     airplaneMode: "",

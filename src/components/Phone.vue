@@ -14,22 +14,16 @@
           <p>{{ connectionName }} {{ connectionType }}</p>
         </div>
         <div class="time">
-          <p>6:17 AM</p>
+          <p>{{time}}</p>
         </div>
         <div class="battery">
           <p v-if="showPercent">{{ percent }}%</p>
-          <i v-if="percent <= 20" class="fa fa-battery-1" ref="battery"></i>
-          <i
-            v-else-if="percent <= 50"
-            class="fa fa-battery-2"
-            ref="battery"
-          ></i>
-          <i
-            v-else-if="percent <= 80"
-            class="fa fa-battery-3"
-            ref="battery"
-          ></i>
-          <i v-else class="fa fa-battery-4" ref="battery"></i>
+          <div v-if="showBattery">
+            <i v-if="percent <= 20" class="fa fa-battery-1" ref="battery"></i>
+            <i v-else-if="percent <= 50" class="fa fa-battery-2" ref="battery"></i>
+            <i v-else-if="percent <= 80" class="fa fa-battery-3" ref="battery"></i>
+            <i v-else class="fa fa-battery-4" ref="battery"></i>
+          </div>
         </div>
       </div>
       <div class="bottom">
@@ -48,12 +42,7 @@
     </div>
     <div class="footer">
       <i class="fa fa-camera"></i>
-      <input
-        class="message-input"
-        type="text"
-        placeholder="Type input please ..."
-        disabled
-      />
+      <input class="message-input" type="text" placeholder="Type input please ..." disabled />
       <i class="fa fa-microphone"></i>
     </div>
   </div>
@@ -79,13 +68,15 @@ export default {
     ...mapFields([
       "name",
       "fieldB",
+      "time",
       "percent",
       "showPercent",
+      "showBattery",
       "connectionType",
       "airplaneMode",
       "connectionName",
-      "message",
-    ]),
+      "message"
+    ])
     // ...mapMultiRowFields(["message"]),
   },
   mounted() {
@@ -93,7 +84,7 @@ export default {
     // console.log(battery);
     // let percent = this.$store.state.percent;
     // battery.style.scale = percent;
-  },
+  }
 };
 </script>
 

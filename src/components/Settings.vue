@@ -19,11 +19,7 @@
             <input v-model="name" type="text" placeholder="Name" />
           </div>
           <div v-for="(mes, index) in message" :key="index">
-            <input
-              type="text"
-              v-model="message[index]"
-              placeholder="Message..."
-            />
+            <input type="text" v-model="message[index]" placeholder="Message..." />
             {{ mes.value }}
             <i></i>
             <i></i>
@@ -52,7 +48,7 @@
           </div>
           <div>
             <p>Show Battery</p>
-            <input type="checkbox" name id />
+            <input type="checkbox" v-model="showBattery" />
           </div>
         </div>
       </transition>
@@ -99,7 +95,7 @@
         <div class="collapse-card" v-if="Settings">
           <div>
             <p>Time</p>
-            <input type="text" name id />
+            <input type="text" v-model="time" name id />
           </div>
           <div>
             <p>Show Bluetooth</p>
@@ -147,7 +143,7 @@ export default {
       Conversation: true,
       Battery: false,
       Connection: false,
-      Settings: false,
+      Settings: false
       // name: this.$store.getters.test,
     };
   },
@@ -159,21 +155,23 @@ export default {
     ...mapFields([
       "name",
       "fieldB",
+      "time",
       "percent",
       "showPercent",
+      "showBattery",
       "connectionType",
       "airplaneMode",
       "connectionName",
-      "message",
-    ]),
+      "message"
+    ])
     // ...mapMultiRowFields(["message"]),
   },
   methods: {
     // ...mapMutations(["addMessageField"]),
     addMessageField() {
       this.$store.commit("addMessageField");
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -181,7 +179,7 @@ export default {
 $background-color: rgb(245, 245, 245);
 $border-color: darken(
   $color: $background-color,
-  $amount: 10,
+  $amount: 10
 );
 $blue-color: rgb(0, 132, 255);
 
