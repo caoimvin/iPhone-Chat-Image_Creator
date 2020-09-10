@@ -1,4 +1,5 @@
-# test-app
+# iPhone Chat-Image Creator
+
 
 ## Project setup
 ```
